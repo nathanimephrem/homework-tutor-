@@ -1,0 +1,6 @@
+{
+  "name": "AI Homework Tutor Telegram Bot",
+  "description": "Comprehensive AI Homework Tutor Telegram Bot with multi-agent routing (Vision, Socratic Tutor, Practice, PDF, Voice, Study Planner, and Progress tracking) and an interactive live Telegram simulator dashboard.",
+  "requestFramePermissions": ["microphone"],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}

@@ -1,0 +1,64 @@
+{
+  "entities": {
+    "User": {
+      "title": "UserProfile",
+      "description": "Student profile, study settings, streak and XP",
+      "type": "object",
+      "properties": {
+        "telegramId": { "type": "string" },
+        "username": { "type": "string" },
+        "name": { "type": "string" },
+        "grade": { "type": "string" },
+        "subjects": { "type": "array", "items": { "type": "string" } },
+        "preferredLanguage": { "type": "string" },
+        "currentMode": { "type": "string" },
+        "streakDays": { "type": "number" },
+        "lastActiveDate": { "type": "string" },
+        "xp": { "type": "number" },
+        "createdAt": { "type": "number" }
+      },
+      "required": ["telegramId", "name", "grade", "subjects"]
+    },
+    "Message": {
+      "title": "TelegramMessage",
+      "description": "Chat message between student and AI multi-agent tutor",
+      "type": "object",
+      "properties": {
+        "id": { "type": "string" },
+        "telegramId": { "type": "string" },
+        "sender": { "type": "string" },
+        "text": { "type": "string" },
+        "timestamp": { "type": "number" },
+        "agent": { "type": "string" }
+      },
+      "required": ["id", "telegramId", "sender", "text", "timestamp"]
+    },
+    "StudyPlan": {
+      "title": "StudyPlan",
+      "description": "Generated study plans for exams",
+      "type": "object",
+      "properties": {
+        "id": { "type": "string" },
+        "telegramId": { "type": "string" },
+        "title": { "type": "string" },
+        "subject": { "type": "string" },
+        "createdAt": { "type": "number" }
+      },
+      "required": ["id", "telegramId", "title", "subject"]
+    }
+  },
+  "firestore": {
+    "/users/{userId}": {
+      "schema": "User",
+      "description": "Student user records"
+    },
+    "/users/{userId}/messages/{messageId}": {
+      "schema": "Message",
+      "description": "Messages for a user"
+    },
+    "/study_plans/{planId}": {
+      "schema": "StudyPlan",
+      "description": "Study plans"
+    }
+  }
+}
